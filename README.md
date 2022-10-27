@@ -1,4 +1,4 @@
-# binPainter
+# binPainter - VSCODE
 
 A simple tool useful for representing files as images, to better see the structures between bytes. With this tool you can quickly get rough information about the encryption, entropy of a file. I also use this tool to analyze binary files that need to be flashed into embedded systems to verify correct memory usage.
 
