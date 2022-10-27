@@ -1,0 +1,77 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "makeBuiltIn",
+			"command": "/usr/bin/clang",
+			"args": [
+				"-fcolor-diagnostics",
+				"-fansi-escape-codes",
+				"-g",
+				"${file}",
+				"-o",
+				"${workspaceFolder}/build/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${fileDirname}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"detail": "compilatore: /usr/bin/clang"
+		},
+		{
+			"type": "process",
+			"label": "clean",
+			"command": "rm",
+			"windows": {
+				"command": "del"
+			  },
+			"args": [
+				"${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
+			"group": {
+				"kind": "none",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "process",
+			"label": "make",
+			"command": "sh",
+			"args": [
+				"make.sh"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/tools"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "process",
+			"label": "test",
+			"command": "sh",
+			"args": [
+				"RunTest.sh"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/test"
+			},
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		}
+	]
+}
